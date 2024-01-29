@@ -1,0 +1,199 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #930B15, #233C5B);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: center; 
+}
+
+/* Grid Container */
+#ProductsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Individual Hero Div */
+.heroDiv {
+    background-color: #2a2a2a; /* Dark background */
+    color: #f0f0f0; /* Light text color for contrast */
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.heroDiv:active {
+    transform: scale(0.98); /* Slight scale down on click */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.product-name, .product-price {
+    font-size: 1.5rem;
+    margin: 10px;
+    z-index: 2;
+}
+
+/* Color Overlay */
+.heroDiv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 153, 204, 0.2); /* Semi-transparent overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+#msgElement {
+    color: white;
+}
+
+.heroDiv:hover::before {
+    opacity: 1;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #ProductsContainer {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+
+h1, h2 {
+    color: #ffffff; /* Adjust the color to fit your superhero theme */
+    font-size: 2rem; /* Neat and proportional size */
+    margin-bottom: 0.5em;
+}
+
+p {
+    color: #ffff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.logo {
+    display: block;
+    margin: 10px auto; 
+    width: 500px; /* Smaller logo size */
+    height: auto;
+}
+
+button {
+    background-color: #0d47a1; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 2px auto; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display:inline-table; /* Make buttons block to fill width */
+}
+
+button:hover {
+    background-color: #1565c0; /* A slightly darker blue on hover */
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="search"] {
+    padding: 10px;
+    margin: 10px auto; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    width: 80%; 
+    max-width: 300px; 
+}
+
+.shopping-cart-icon {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 50px; /* Size of the cart icon */
+}
+
+.shopping-cart-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;  /* Position the tooltip below the icon */
+    left: -10%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s; /* Adjust for faster or slower appearance */
+    visibility: hidden;
+}
+
+.shopping-cart-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.shopping-cart-icon img {
+    width: 100%;
+    height: auto;
+}
+
+select {
+    padding: 5px 10px; 
+    margin: 5px auto; 
+    border-radius: 3px; 
+    font-size: 0.8rem; 
+    display: block; 
+    width: 50%; 
+    max-width: 150px; 
+    cursor: pointer; 
+    height: 30px;
+    appearance: none; /* Remove default styling */
+}
+
+
+/* responsive */
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="search"],
+    select {
+        width: 90%; /* Slightly more width on smaller screens */
+    }
+
+    .products-header {
+        flex-direction:column-reverse;
+        justify-content: center /* Stack elements on smaller screens */
+    }
+
+    .by-price-sort {
+        margin-left: 0; /* Remove left margin on smaller screens */
+    }
+}
