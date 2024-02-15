@@ -129,21 +129,5 @@ app.post('/search',async (req, res) => {
     res.json(result)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const PORT = 4000;
 app.listen(PORT, () => {console.log(`server is up and running on port ${PORT}`)});
